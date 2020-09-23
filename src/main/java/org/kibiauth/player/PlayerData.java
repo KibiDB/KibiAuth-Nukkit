@@ -1,7 +1,5 @@
 package org.kibiauth.player;
 
-import org.kibiauth.scheduler.AuthTask;
-
 public class PlayerData {
     public final static int STATUS_SEARCH = 0;
     public final static int STATUS_NOT_AUTHENTICATED = 1;

@@ -4,7 +4,6 @@ import cn.nukkit.Player;
 import cn.nukkit.utils.Config;
 import com.kibi.driver.Client;
 import org.kibiauth.Auth;
-import org.kibiauth.player.AuthPlayer;
 import org.kibiauth.player.PlayerData;
 
 public class SearchPlayerData extends Thread {
@@ -22,7 +21,7 @@ public class SearchPlayerData extends Thread {
 
         String result = client.getConnection().get(player.getName());
 
-        PlayerData source = ((AuthPlayer) player).getData();
+        PlayerData source = Auth.getSessionStorage().getSession(player);
 
         if (result == null) {
             source.setStatus(PlayerData.STATUS_NOT_REGISTERED);

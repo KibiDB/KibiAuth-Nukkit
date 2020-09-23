@@ -4,16 +4,19 @@ import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.Config;
 import org.kibiauth.command.LoginCommand;
 import org.kibiauth.command.RegisterCommand;
+import org.kibiauth.player.SessionStorage;
 
 import java.io.File;
 
 public class Auth extends PluginBase {
     private static Auth instance;
     private static Config kibi;
+    private static SessionStorage sessionStorage;
 
     @Override
     public void onEnable() {
         instance = this;
+        sessionStorage = new SessionStorage();
 
         getDataFolder().mkdirs();
 
@@ -38,5 +41,9 @@ public class Auth extends PluginBase {
 
     public static Config getKibi() {
         return kibi;
+    }
+
+    public static SessionStorage getSessionStorage() {
+        return sessionStorage;
     }
 }
